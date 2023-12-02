@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		049227A22B1BF72D00DD98CA /* HangoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227A12B1BF72D00DD98CA /* HangoutApp.swift */; };
+		049227A42B1BF72D00DD98CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227A32B1BF72D00DD98CA /* ContentView.swift */; };
+		049227A62B1BF73000DD98CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049227A52B1BF73000DD98CA /* Assets.xcassets */; };
+		049227A92B1BF73000DD98CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049227A82B1BF73000DD98CA /* Preview Assets.xcassets */; };
+		049227B32B1BF73100DD98CA /* HangoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227B22B1BF73100DD98CA /* HangoutTests.swift */; };
+		049227BD2B1BF73100DD98CA /* HangoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227BC2B1BF73100DD98CA /* HangoutUITests.swift */; };
+		049227BF2B1BF73100DD98CA /* HangoutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227BE2B1BF73100DD98CA /* HangoutUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		049227AF2B1BF73100DD98CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 049227962B1BF72D00DD98CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0492279D2B1BF72D00DD98CA;
+			remoteInfo = Hangout;
+		};
+		049227B92B1BF73100DD98CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 049227962B1BF72D00DD98CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0492279D2B1BF72D00DD98CA;
+			remoteInfo = Hangout;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0492279E2B1BF72D00DD98CA /* Hangout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		049227A12B1BF72D00DD98CA /* HangoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutApp.swift; sourceTree = "<group>"; };
+		049227A32B1BF72D00DD98CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		049227A52B1BF73000DD98CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		049227A82B1BF73000DD98CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		049227AE2B1BF73100DD98CA /* HangoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HangoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		049227B22B1BF73100DD98CA /* HangoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutTests.swift; sourceTree = "<group>"; };
+		049227B82B1BF73100DD98CA /* HangoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HangoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		049227BC2B1BF73100DD98CA /* HangoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutUITests.swift; sourceTree = "<group>"; };
+		049227BE2B1BF73100DD98CA /* HangoutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0492279B2B1BF72D00DD98CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049227AB2B1BF73100DD98CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049227B52B1BF73100DD98CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		049227952B1BF72D00DD98CA = {
+			isa = PBXGroup;
+			children = (
+				049227A02B1BF72D00DD98CA /* Hangout */,
+				049227B12B1BF73100DD98CA /* HangoutTests */,
+				049227BB2B1BF73100DD98CA /* HangoutUITests */,
+				0492279F2B1BF72D00DD98CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0492279F2B1BF72D00DD98CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0492279E2B1BF72D00DD98CA /* Hangout.app */,
+				049227AE2B1BF73100DD98CA /* HangoutTests.xctest */,
+				049227B82B1BF73100DD98CA /* HangoutUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		049227A02B1BF72D00DD98CA /* Hangout */ = {
+			isa = PBXGroup;
+			children = (
+				049227A12B1BF72D00DD98CA /* HangoutApp.swift */,
+				049227A32B1BF72D00DD98CA /* ContentView.swift */,
+				049227A52B1BF73000DD98CA /* Assets.xcassets */,
+				049227A72B1BF73000DD98CA /* Preview Content */,
+			);
+			path = Hangout;
+			sourceTree = "<group>";
+		};
+		049227A72B1BF73000DD98CA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				049227A82B1BF73000DD98CA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		049227B12B1BF73100DD98CA /* HangoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				049227B22B1BF73100DD98CA /* HangoutTests.swift */,
+			);
+			path = HangoutTests;
+			sourceTree = "<group>";
+		};
+		049227BB2B1BF73100DD98CA /* HangoutUITests */ = {
+			isa = PBXGroup;
+			children = (
+				049227BC2B1BF73100DD98CA /* HangoutUITests.swift */,
+				049227BE2B1BF73100DD98CA /* HangoutUITestsLaunchTests.swift */,
+			);
+			path = HangoutUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0492279D2B1BF72D00DD98CA /* Hangout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 049227C22B1BF73100DD98CA /* Build configuration list for PBXNativeTarget "Hangout" */;
+			buildPhases = (
+				0492279A2B1BF72D00DD98CA /* Sources */,
+				0492279B2B1BF72D00DD98CA /* Frameworks */,
+				0492279C2B1BF72D00DD98CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hangout;
+			productName = Hangout;
+			productReference = 0492279E2B1BF72D00DD98CA /* Hangout.app */;
+			productType = "com.apple.product-type.application";
+		};
+		049227AD2B1BF73100DD98CA /* HangoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 049227C52B1BF73100DD98CA /* Build configuration list for PBXNativeTarget "HangoutTests" */;
+			buildPhases = (
+				049227AA2B1BF73100DD98CA /* Sources */,
+				049227AB2B1BF73100DD98CA /* Frameworks */,
+				049227AC2B1BF73100DD98CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				049227B02B1BF73100DD98CA /* PBXTargetDependency */,
+			);
+			name = HangoutTests;
+			productName = HangoutTests;
+			productReference = 049227AE2B1BF73100DD98CA /* HangoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		049227B72B1BF73100DD98CA /* HangoutUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 049227C82B1BF73100DD98CA /* Build configuration list for PBXNativeTarget "HangoutUITests" */;
+			buildPhases = (
+				049227B42B1BF73100DD98CA /* Sources */,
+				049227B52B1BF73100DD98CA /* Frameworks */,
+				049227B62B1BF73100DD98CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				049227BA2B1BF73100DD98CA /* PBXTargetDependency */,
+			);
+			name = HangoutUITests;
+			productName = HangoutUITests;
+			productReference = 049227B82B1BF73100DD98CA /* HangoutUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		049227962B1BF72D00DD98CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					0492279D2B1BF72D00DD98CA = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					049227AD2B1BF73100DD98CA = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 0492279D2B1BF72D00DD98CA;
+					};
+					049227B72B1BF73100DD98CA = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 0492279D2B1BF72D00DD98CA;
+					};
+				};
+			};
+			buildConfigurationList = 049227992B1BF72D00DD98CA /* Build configuration list for PBXProject "Hangout" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 049227952B1BF72D00DD98CA;
+			productRefGroup = 0492279F2B1BF72D00DD98CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0492279D2B1BF72D00DD98CA /* Hangout */,
+				049227AD2B1BF73100DD98CA /* HangoutTests */,
+				049227B72B1BF73100DD98CA /* HangoutUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0492279C2B1BF72D00DD98CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049227A92B1BF73000DD98CA /* Preview Assets.xcassets in Resources */,
+				049227A62B1BF73000DD98CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049227AC2B1BF73100DD98CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049227B62B1BF73100DD98CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0492279A2B1BF72D00DD98CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049227A42B1BF72D00DD98CA /* ContentView.swift in Sources */,
+				049227A22B1BF72D00DD98CA /* HangoutApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049227AA2B1BF73100DD98CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049227B32B1BF73100DD98CA /* HangoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		049227B42B1BF73100DD98CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049227BD2B1BF73100DD98CA /* HangoutUITests.swift in Sources */,
+				049227BF2B1BF73100DD98CA /* HangoutUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		049227B02B1BF73100DD98CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0492279D2B1BF72D00DD98CA /* Hangout */;
+			targetProxy = 049227AF2B1BF73100DD98CA /* PBXContainerItemProxy */;
+		};
+		049227BA2B1BF73100DD98CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0492279D2B1BF72D00DD98CA /* Hangout */;
+			targetProxy = 049227B92B1BF73100DD98CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		049227C02B1BF73100DD98CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		049227C12B1BF73100DD98CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		049227C32B1BF73100DD98CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hangout/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Christian.Hangout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		049227C42B1BF73100DD98CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hangout/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Christian.Hangout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		049227C62B1BF73100DD98CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Christian.HangoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hangout.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hangout";
+			};
+			name = Debug;
+		};
+		049227C72B1BF73100DD98CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Christian.HangoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hangout.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hangout";
+			};
+			name = Release;
+		};
+		049227C92B1BF73100DD98CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Christian.HangoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hangout;
+			};
+			name = Debug;
+		};
+		049227CA2B1BF73100DD98CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Christian.HangoutUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hangout;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		049227992B1BF72D00DD98CA /* Build configuration list for PBXProject "Hangout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049227C02B1BF73100DD98CA /* Debug */,
+				049227C12B1BF73100DD98CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		049227C22B1BF73100DD98CA /* Build configuration list for PBXNativeTarget "Hangout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049227C32B1BF73100DD98CA /* Debug */,
+				049227C42B1BF73100DD98CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		049227C52B1BF73100DD98CA /* Build configuration list for PBXNativeTarget "HangoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049227C62B1BF73100DD98CA /* Debug */,
+				049227C72B1BF73100DD98CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		049227C82B1BF73100DD98CA /* Build configuration list for PBXNativeTarget "HangoutUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049227C92B1BF73100DD98CA /* Debug */,
+				049227CA2B1BF73100DD98CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 049227962B1BF72D00DD98CA /* Project object */;
+}
