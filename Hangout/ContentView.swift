@@ -15,7 +15,7 @@ struct ContentView: View {
             TabView {
                 MapView()
                     .tabItem {
-                        Image(systemName: "location")
+                        Image(systemName: "location.north")
                         Text("Map")
                     }
                     .tag(0)
@@ -36,8 +36,8 @@ struct ContentView: View {
                 
                 FriendView()
                     .tabItem {
-                        Image(systemName: "person")
-                        Text("Profile")
+                        Image(systemName: "person.2")
+                        Text("Friends")
                     }
                     .tag(3)
             }
