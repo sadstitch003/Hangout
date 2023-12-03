@@ -18,6 +18,9 @@
 		049227D02B1C47DE00DD98CA /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227CF2B1C47DE00DD98CA /* FriendView.swift */; };
 		049227D42B1C805D00DD98CA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227D32B1C805D00DD98CA /* MapView.swift */; };
 		049227D62B1C808700DD98CA /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227D52B1C808700DD98CA /* MessageView.swift */; };
+		049227D82B1CC35800DD98CA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227D72B1CC35800DD98CA /* LoginView.swift */; };
+		049227DC2B1CCD7E00DD98CA /* LoginFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227DB2B1CCD7E00DD98CA /* LoginFormView.swift */; };
+		049227DE2B1CCD9800DD98CA /* SigninFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227DD2B1CCD9800DD98CA /* SigninFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		049227CF2B1C47DE00DD98CA /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		049227D32B1C805D00DD98CA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		049227D52B1C808700DD98CA /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		049227D72B1CC35800DD98CA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		049227DB2B1CCD7E00DD98CA /* LoginFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.swift; sourceTree = "<group>"; };
+		049227DD2B1CCD9800DD98CA /* SigninFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,9 @@
 				049227CF2B1C47DE00DD98CA /* FriendView.swift */,
 				049227D32B1C805D00DD98CA /* MapView.swift */,
 				049227D52B1C808700DD98CA /* MessageView.swift */,
+				049227D72B1CC35800DD98CA /* LoginView.swift */,
+				049227DB2B1CCD7E00DD98CA /* LoginFormView.swift */,
+				049227DD2B1CCD9800DD98CA /* SigninFormView.swift */,
 			);
 			path = Hangout;
 			sourceTree = "<group>";
@@ -270,8 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				049227D62B1C808700DD98CA /* MessageView.swift in Sources */,
+				049227DE2B1CCD9800DD98CA /* SigninFormView.swift in Sources */,
+				049227D82B1CC35800DD98CA /* LoginView.swift in Sources */,
 				049227A42B1BF72D00DD98CA /* ContentView.swift in Sources */,
 				049227D42B1C805D00DD98CA /* MapView.swift in Sources */,
+				049227DC2B1CCD7E00DD98CA /* LoginFormView.swift in Sources */,
 				049227CC2B1C475800DD98CA /* SplitBillView.swift in Sources */,
 				049227D02B1C47DE00DD98CA /* FriendView.swift in Sources */,
 				049227A22B1BF72D00DD98CA /* HangoutApp.swift in Sources */,
