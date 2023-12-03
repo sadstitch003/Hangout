@@ -22,7 +22,7 @@ struct ContentView: View {
                 
                 SplitBillView()
                     .tabItem {
-                        Image(systemName: "banknote")
+                        Image(systemName: "pencil.and.list.clipboard")
                         Text("Split Bill")
                     }
                     .tag(1)
