@@ -13,31 +13,36 @@ struct ContentView: View {
         //Login()
         VStack{
             TabView {
-                LiveLocationView()
+                MapView()
                     .tabItem {
-                        Text("Location")
+                        Image(systemName: "location.north")
+                        Text("Map")
                     }
                     .tag(0)
                 
                 SplitBillView()
                     .tabItem {
+                        Image(systemName: "banknote")
                         Text("Split Bill")
                     }
                     .tag(1)
                 
-                FriendView()
+                MessageView()
                     .tabItem {
-                        Text("Friends")
+                        Image(systemName: "message")
+                        Text("Message")
                     }
                     .tag(2)
                 
-                ProfileView()
+                FriendView()
                     .tabItem {
-                        Text("Profile")
+                        Image(systemName: "person.2")
+                        Text("Friends")
                     }
                     .tag(3)
             }
             .padding()
+            .accentColor(Color(red: 67/255, green: 147/255, blue: 267/255))
         }
         .edgesIgnoringSafeArea(.bottom)
     }
