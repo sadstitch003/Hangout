@@ -19,6 +19,7 @@ struct ContentView: View {
                         Text("Map")
                     }
                     .tag(0)
+                    .edgesIgnoringSafeArea(.top)
                 
                 SplitBillView()
                     .tabItem {
@@ -37,14 +38,14 @@ struct ContentView: View {
                 FriendView()
                     .tabItem {
                         Image(systemName: "person.2")
+                            .padding(.top, 5)
                         Text("Friends")
                     }
                     .tag(3)
             }
-            .padding()
             .accentColor(Color(red: 67/255, green: 147/255, blue: 267/255))
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
