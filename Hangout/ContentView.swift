@@ -13,10 +13,10 @@ struct ContentView: View {
         //Login()
         VStack{
             TabView {
-                LiveLocationView()
+                MapView()
                     .tabItem {
                         Image(systemName: "location")
-                        Text("Location")
+                        Text("Map")
                     }
                     .tag(0)
                 
@@ -27,14 +27,14 @@ struct ContentView: View {
                     }
                     .tag(1)
                 
-                FriendView()
+                MessageView()
                     .tabItem {
                         Image(systemName: "message")
                         Text("Message")
                     }
                     .tag(2)
                 
-                ProfileView()
+                FriendView()
                     .tabItem {
                         Image(systemName: "person")
                         Text("Profile")

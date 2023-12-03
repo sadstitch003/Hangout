@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct LiveLocationView: View {
+struct MapView: View {
     var body: some View {
-        Text("Live Location")
+        Text("Map")
     }
 }
 
 #Preview {
-    LiveLocationView()
+    MapView()
 }
