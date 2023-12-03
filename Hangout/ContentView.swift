@@ -15,29 +15,34 @@ struct ContentView: View {
             TabView {
                 LiveLocationView()
                     .tabItem {
+                        Image(systemName: "location")
                         Text("Location")
                     }
                     .tag(0)
                 
                 SplitBillView()
                     .tabItem {
+                        Image(systemName: "banknote")
                         Text("Split Bill")
                     }
                     .tag(1)
                 
                 FriendView()
                     .tabItem {
-                        Text("Friends")
+                        Image(systemName: "message")
+                        Text("Message")
                     }
                     .tag(2)
                 
                 ProfileView()
                     .tabItem {
+                        Image(systemName: "person")
                         Text("Profile")
                     }
                     .tag(3)
             }
             .padding()
+            .accentColor(Color(red: 67/255, green: 147/255, blue: 267/255))
         }
         .edgesIgnoringSafeArea(.bottom)
     }
