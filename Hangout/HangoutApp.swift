@@ -11,7 +11,9 @@ import SwiftUI
 struct HangoutApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BoardingView()
+//            LoginView()
+//            ContentView()
         }
     }
 }
