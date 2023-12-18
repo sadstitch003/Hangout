@@ -21,6 +21,9 @@
 		049227D82B1CC35800DD98CA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227D72B1CC35800DD98CA /* LoginView.swift */; };
 		049227DC2B1CCD7E00DD98CA /* LoginFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227DB2B1CCD7E00DD98CA /* LoginFormView.swift */; };
 		049227DE2B1CCD9800DD98CA /* SigninFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227DD2B1CCD9800DD98CA /* SigninFormView.swift */; };
+		04C062802B2B4330008E8362 /* BoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0627F2B2B4330008E8362 /* BoardingView.swift */; };
+		04C062822B2B44C1008E8362 /* Boarding2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C062812B2B44C1008E8362 /* Boarding2View.swift */; };
+		04C062842B2B44E6008E8362 /* Boarding3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C062832B2B44E6008E8362 /* Boarding3View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		049227D72B1CC35800DD98CA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		049227DB2B1CCD7E00DD98CA /* LoginFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.swift; sourceTree = "<group>"; };
 		049227DD2B1CCD9800DD98CA /* SigninFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninFormView.swift; sourceTree = "<group>"; };
+		04C0627F2B2B4330008E8362 /* BoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingView.swift; sourceTree = "<group>"; };
+		04C062812B2B44C1008E8362 /* Boarding2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boarding2View.swift; sourceTree = "<group>"; };
+		04C062832B2B44E6008E8362 /* Boarding3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boarding3View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,16 +115,19 @@
 			isa = PBXGroup;
 			children = (
 				049227A12B1BF72D00DD98CA /* HangoutApp.swift */,
-				049227A32B1BF72D00DD98CA /* ContentView.swift */,
-				049227A52B1BF73000DD98CA /* Assets.xcassets */,
-				049227A72B1BF73000DD98CA /* Preview Content */,
-				049227CB2B1C475800DD98CA /* SplitBillView.swift */,
-				049227CF2B1C47DE00DD98CA /* FriendView.swift */,
-				049227D32B1C805D00DD98CA /* MapView.swift */,
-				049227D52B1C808700DD98CA /* MessageView.swift */,
+				04C0627F2B2B4330008E8362 /* BoardingView.swift */,
+				04C062812B2B44C1008E8362 /* Boarding2View.swift */,
+				04C062832B2B44E6008E8362 /* Boarding3View.swift */,
 				049227D72B1CC35800DD98CA /* LoginView.swift */,
 				049227DB2B1CCD7E00DD98CA /* LoginFormView.swift */,
 				049227DD2B1CCD9800DD98CA /* SigninFormView.swift */,
+				049227A32B1BF72D00DD98CA /* ContentView.swift */,
+				049227A52B1BF73000DD98CA /* Assets.xcassets */,
+				049227D32B1C805D00DD98CA /* MapView.swift */,
+				049227CB2B1C475800DD98CA /* SplitBillView.swift */,
+				049227D52B1C808700DD98CA /* MessageView.swift */,
+				049227CF2B1C47DE00DD98CA /* FriendView.swift */,
+				049227A72B1BF73000DD98CA /* Preview Content */,
 			);
 			path = Hangout;
 			sourceTree = "<group>";
@@ -280,12 +289,15 @@
 			files = (
 				049227D62B1C808700DD98CA /* MessageView.swift in Sources */,
 				049227DE2B1CCD9800DD98CA /* SigninFormView.swift in Sources */,
+				04C062802B2B4330008E8362 /* BoardingView.swift in Sources */,
 				049227D82B1CC35800DD98CA /* LoginView.swift in Sources */,
 				049227A42B1BF72D00DD98CA /* ContentView.swift in Sources */,
 				049227D42B1C805D00DD98CA /* MapView.swift in Sources */,
 				049227DC2B1CCD7E00DD98CA /* LoginFormView.swift in Sources */,
 				049227CC2B1C475800DD98CA /* SplitBillView.swift in Sources */,
+				04C062822B2B44C1008E8362 /* Boarding2View.swift in Sources */,
 				049227D02B1C47DE00DD98CA /* FriendView.swift in Sources */,
+				04C062842B2B44E6008E8362 /* Boarding3View.swift in Sources */,
 				049227A22B1BF72D00DD98CA /* HangoutApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
