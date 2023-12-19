@@ -31,15 +31,16 @@ struct Boarding3View: View {
                 HStack(spacing: 20) {
                     Circle()
                         .frame(width: 10, height: 10)
+                        .foregroundColor(.gray)
+                    
+                    Circle()
+                        .frame(width: 10, height: 10)
+                        .foregroundColor(.gray)
+                    
+                    Circle()
+                        .frame(width: 10, height: 10)
                         .foregroundColor(Color(red: 67/255, green: 147/255, blue: 267/255))
                     
-                    Circle()
-                        .frame(width: 10, height: 10)
-                        .foregroundColor(.gray)
-                    
-                    Circle()
-                        .frame(width: 10, height: 10)
-                        .foregroundColor(.gray)
                 }
                 .padding()
                 
