@@ -9,11 +9,23 @@ import SwiftUI
 
 @main
 struct HangoutApp: App {
+    @AppStorage("isOnBoarding") var isOnBoarding: Bool = true
+    @AppStorage("needLogin") var needLogin: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            BoardingView()
-//            LoginView()
-//            ContentView()
+            if isOnBoarding
+            {
+                BoardingView()
+            }
+            else if needLogin
+            {
+                LoginView()
+            }
+            else
+            {
+                ContentView()
+            }
         }
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Boarding3View: View {
+    @AppStorage("isOnBoarding") var isOnBoarding: Bool = true
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -44,16 +46,18 @@ struct Boarding3View: View {
                 }
                 .padding()
                 
-                NavigationLink(destination: Boarding3View()) {
-                    Text("Continue")
+                Button(action: {
+                    isOnBoarding = false
+                }) {
+                    Text("Get Started!")
                         .font(.title2)
                         .bold()
+                        .padding(10)
+                        .frame(width: 280)
+                        .foregroundColor(.white)
+                        .background(Color(red: 67/255, green: 147/255, blue: 267/255))
+                        .cornerRadius(50)
                 }
-                .padding(10)
-                .frame(width: 280)
-                .foregroundColor(.white)
-                .background(Color(red: 67/255, green: 147/255, blue: 267/255))
-                .cornerRadius(50)
             }
             .padding(40)
         }
