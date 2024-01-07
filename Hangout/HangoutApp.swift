@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import Firebase
+import GoogleSignIn
+
 
 @main
-struct HangoutApp: App {
+struct SignInUsingGoogleApp: App{
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @AppStorage("signIn") var isSignIn = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if !isSignIn {
+                LoginView()
+            } else {
+                SigninFormView()
+            }
         }
     }
 }
