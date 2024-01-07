@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
+import GoogleSignIn
 
 @main
 struct HangoutApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @AppStorage("signIn") var isSignIn = false
     @AppStorage("isOnBoarding") var isOnBoarding: Bool = true
     @AppStorage("needLogin") var needLogin: Bool = true
     
@@ -20,7 +24,7 @@ struct HangoutApp: App {
             }
             else if needLogin
             {
-                LoginView()
+                LoginFormView()
             }
             else
             {
