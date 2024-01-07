@@ -4,12 +4,7 @@
 //
 //  Created by MacBook Pro on 03/12/23.
 //
-//
-//  LoginFormView.swift
-//  Hangout
-//
-//  Created by MacBook Pro on 03/12/23.
-//
+
 import SwiftUI
 import FirebaseAuth
 import GoogleSignIn
@@ -36,72 +31,74 @@ struct LoginFormView: View {
             }
             .padding(.bottom, 30)
             
-            HStack {
-                Text("Username or Email").fontWeight(.semibold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 10)
-            }
-            .padding(.leading)
-            
-            TextField("", text: $username)
-                .underlinetextfield()
-                .padding()
-
-            
-            HStack {
-                Text("Password").fontWeight(.semibold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 10)
+            VStack{
+                HStack {
+                    Text("Username or Email")
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 10)
+                }
+                .padding(.leading)
                 
+                TextField("", text: $username)
+                    .underlinetextfield()
+                    .padding(.horizontal)
             }
-            .padding(.leading)
-            ZStack(alignment: .trailing) {
+            .padding(.bottom)
+            
+            VStack{
                 HStack {
-                    if isPasswordVisible {
-                        TextField("", text: $password)
-                            .underlinetextfield()
-                            .padding()
-                    } else {
-                        SecureField("", text: $password)
-                            .underlinetextfield()
-                            .padding()
+                    Text("Password").fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 10)
+                    
+                }
+                .padding(.leading)
+                ZStack(alignment: .trailing) {
+                    HStack {
+                        if isPasswordVisible {
+                            TextField("", text: $password)
+                                .underlinetextfield()
+                                .padding(.horizontal)
+                        } else {
+                            SecureField("", text: $password)
+                                .underlinetextfield()
+                                .padding(.horizontal)
+                        }
+                    }
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            isPasswordVisible.toggle()
+                        }) {
+                            Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
+                                .foregroundColor(Color.gray)
+                                .padding(.trailing, 25)
+                        }
+                        .onTapGesture {
+                            isPasswordVisible.toggle()
+                        }
                     }
                 }
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        isPasswordVisible.toggle()
-                    }) {
-                        Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
-                            .foregroundColor(Color.gray)
-                            .padding(.trailing, 25)
-                    }
-                    .onTapGesture {
-                        isPasswordVisible.toggle()
-                    }
-                }
             }
+            
             VStack{
                 Spacer()
-                    // Start the sign in flow!
+                
                 GoogleSignInButtons {
                     guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
-                    // Create Google Sign In configuration object.
                     let config = GIDConfiguration(clientID: clientID)
                     GIDSignIn.sharedInstance.configuration = config
 
-                    // Start the sign in flow!
                     GIDSignIn.sharedInstance.signIn(withPresenting: getRootViewController()) { result, error in
                         guard error == nil else {
-                            // Handle the sign-in error...
                             print("Error during sign in: \(error!)")
                             return
                         }
 
                         guard let user = result?.user,
                               let idToken = user.idToken?.tokenString else {
-                            // Handle the missing user or ID token...
                             print("Error: Missing user or ID token")
                             return
                         }
@@ -111,50 +108,44 @@ struct LoginFormView: View {
 
                         Auth.auth().signIn(with: credential) {
                         result, error in
-                            // TODO: -MANAGE ERROR
                             guard error == nil else {
                                 return
                             }
                             print("Sign In")
                             UserDefaults.standard.set(true, forKey: "signIn")
                             needLogin = false
-
-
-                               
+      
                         }
                     }
                 }
-                    ZStack{
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 208, height: 45)
-                            .background(Color(red: 0.26, green: 0.58, blue: 0.97))
-                            .cornerRadius(90)
-                        
-                        Button(action: {
-                            if username.isEmpty || password.isEmpty {
-                                showEmptyFieldsAlert.toggle()
-                            } else {
-                                // Handle the login action when all fields are filled
-                            }
-                        }) {
-                            Text("LOG IN")
-//                                .font(
-//                                    Font.custom("Inter", size: 14)
-//                                        .weight(.medium)
-                                .multilineTextAlignment(.center)
-                                .foregroundColor(.white)
-                                .frame(width: 166, height: 42, alignment: .center)
-                                .bold()
+                
+                ZStack{
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 260, height: 42)
+                        .background(Color(red: 0.26, green: 0.58, blue: 0.97))
+                        .cornerRadius(90)
+                    
+                    Button(action: {
+                        if username.isEmpty || password.isEmpty {
+                            showEmptyFieldsAlert.toggle()
+                        } else {
+                            // Handle the login action when all fields are filled
                         }
-                        .alert(isPresented: $showEmptyFieldsAlert) {
-                            Alert(
-                                title: Text("Incomplete Fields"),
-                                message: Text("Please fill in all fields."),
-                                dismissButton: .default(Text("OK"))
-                            )
-                        }
+                    }) {
+                        Text("LOG IN")
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.white)
+                            .bold()
                     }
+                    .alert(isPresented: $showEmptyFieldsAlert) {
+                        Alert(
+                            title: Text("Incomplete Fields"),
+                            message: Text("Please fill in all fields."),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
+                }
                     
                 }
             }

@@ -35,7 +35,7 @@ struct LoginView: View {
                                 .bold()
                         }
                         
-                        NavigationLink(destination: SigninFormView()) {
+                        NavigationLink(destination: SignUpView()) {
                             Text("SIGN UP")
                                 .padding(10)
                                 .frame(width: 150)

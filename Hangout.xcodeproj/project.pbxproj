@@ -20,10 +20,8 @@
 		049227D62B1C808700DD98CA /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227D52B1C808700DD98CA /* MessageView.swift */; };
 		049227D82B1CC35800DD98CA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227D72B1CC35800DD98CA /* LoginView.swift */; };
 		049227DC2B1CCD7E00DD98CA /* LoginFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227DB2B1CCD7E00DD98CA /* LoginFormView.swift */; };
-		049227DE2B1CCD9800DD98CA /* SigninFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227DD2B1CCD9800DD98CA /* SigninFormView.swift */; };
 		04A6D28A2B4AFE7E0060222E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D2892B4AFE7E0060222E /* SignUpView.swift */; };
 		04A6D2902B4B031F0060222E /* AppDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D28F2B4B031F0060222E /* AppDelegates.swift */; };
-		04A6D2922B4B03F80060222E /* SignInUsingGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D2912B4B03F80060222E /* SignInUsingGoogle.swift */; };
 		04A6D2982B4B071C0060222E /* +Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D2972B4B071C0060222E /* +Views.swift */; };
 		04A6D29A2B4B091C0060222E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 04A6D2992B4B091C0060222E /* FirebaseAuth */; };
 		04A6D29C2B4B09630060222E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 04A6D29B2B4B09630060222E /* GoogleSignIn */; };
@@ -70,10 +68,8 @@
 		049227D52B1C808700DD98CA /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		049227D72B1CC35800DD98CA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		049227DB2B1CCD7E00DD98CA /* LoginFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.swift; sourceTree = "<group>"; };
-		049227DD2B1CCD9800DD98CA /* SigninFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninFormView.swift; sourceTree = "<group>"; };
 		04A6D2892B4AFE7E0060222E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		04A6D28F2B4B031F0060222E /* AppDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegates.swift; sourceTree = "<group>"; };
-		04A6D2912B4B03F80060222E /* SignInUsingGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUsingGoogle.swift; sourceTree = "<group>"; };
 		04A6D2962B4B06290060222E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		04A6D2972B4B071C0060222E /* +Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Views.swift"; sourceTree = "<group>"; };
 		04A6D29F2B4B09990060222E /* GoogleSignInButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButtons.swift; sourceTree = "<group>"; };
@@ -145,7 +141,6 @@
 				049227DB2B1CCD7E00DD98CA /* LoginFormView.swift */,
 				04A6D29F2B4B09990060222E /* GoogleSignInButtons.swift */,
 				04A6D2A12B4B0A110060222E /* DatePickerTextFields.swift */,
-				049227DD2B1CCD9800DD98CA /* SigninFormView.swift */,
 				04A6D2892B4AFE7E0060222E /* SignUpView.swift */,
 				049227A32B1BF72D00DD98CA /* ContentView.swift */,
 				049227A52B1BF73000DD98CA /* Assets.xcassets */,
@@ -154,7 +149,6 @@
 				049227D52B1C808700DD98CA /* MessageView.swift */,
 				049227CF2B1C47DE00DD98CA /* FriendView.swift */,
 				04A6D2A72B4B0C210060222E /* GoogleService-Info.plist */,
-				04A6D2912B4B03F80060222E /* SignInUsingGoogle.swift */,
 				049227A72B1BF73000DD98CA /* Preview Content */,
 			);
 			path = Hangout;
@@ -337,7 +331,6 @@
 				04A6D2982B4B071C0060222E /* +Views.swift in Sources */,
 				04A6D2A22B4B0A110060222E /* DatePickerTextFields.swift in Sources */,
 				049227D62B1C808700DD98CA /* MessageView.swift in Sources */,
-				049227DE2B1CCD9800DD98CA /* SigninFormView.swift in Sources */,
 				04C062802B2B4330008E8362 /* BoardingView.swift in Sources */,
 				049227D82B1CC35800DD98CA /* LoginView.swift in Sources */,
 				04A6D2A02B4B09990060222E /* GoogleSignInButtons.swift in Sources */,
@@ -345,7 +338,6 @@
 				049227D42B1C805D00DD98CA /* MapView.swift in Sources */,
 				04A6D2902B4B031F0060222E /* AppDelegates.swift in Sources */,
 				049227DC2B1CCD7E00DD98CA /* LoginFormView.swift in Sources */,
-				04A6D2922B4B03F80060222E /* SignInUsingGoogle.swift in Sources */,
 				049227CC2B1C475800DD98CA /* SplitBillView.swift in Sources */,
 				04A6D28A2B4AFE7E0060222E /* SignUpView.swift in Sources */,
 				04C062822B2B44C1008E8362 /* Boarding2View.swift in Sources */,

@@ -17,7 +17,7 @@ struct GoogleSignInButtons: View {
             ZStack{
                 Rectangle()
                     .foregroundColor(.clear)
-                    .frame(width: 208, height: 38)
+                    .frame(width: 260, height: 42)
                     .background(Color(red: 0.93, green: 0.93, blue: 0.93))
                     .cornerRadius(90)
                 HStack(spacing: 0) {
@@ -25,19 +25,14 @@ struct GoogleSignInButtons: View {
                         .resizable()
                         .frame(width: 30, height: 30)
                     Text("LOG IN WITH GOOGLE")
-                        .font(
-                            Font.custom("Inter", size: 14)
-                                .weight(.medium)
-                        )
                         .multilineTextAlignment(.center)
-//                        .bold()
+                        .bold()
                         .foregroundColor(.black)
-                        .frame(width: 166, height: 42, alignment: .center)
-//                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .frame(width: 180, height: 42, alignment: .center)
                 }
                 
             }
-            .frame(width: 50, height: 50)
+            .frame(width: 180, height: 42)
         }
     }
     
