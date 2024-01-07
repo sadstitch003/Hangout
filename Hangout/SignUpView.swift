@@ -5,7 +5,7 @@
 //  Created by MacBook Pro on 03/12/23.
 //
 //
-//  LoginFormView.swift
+//  SignUpFormView.swift
 //  Hangout
 //
 //  Created by MacBook Pro on 03/12/23.
@@ -15,17 +15,20 @@ import FirebaseAuth
 import GoogleSignIn
 import Firebase
 
-struct LoginFormView: View {
+struct SignUpFormView: View {
+    @State var name = ""
+    @State var gender = ""
+    @State var email = ""
     @State var username = ""
     @State var password = ""
     @State var isPasswordVisible = false
     @State private var showEmptyFieldsAlert = false
-    @AppStorage("needLogin") var needLogin: Bool?
+    @State private var selectedDate = Date()
     
     var body: some View {
         VStack {
             VStack {
-                Text("Login").bold()
+                Text("Register").bold()
                     .font(
                         .system(size: 28)
                     )
@@ -37,17 +40,38 @@ struct LoginFormView: View {
             .padding(.bottom, 30)
             
             HStack {
-                Text("Username or Email").fontWeight(.semibold)
+                Text("Name").fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 10)
             }
             .padding(.leading)
             
+            TextField("", text: $name)
+                .underlinetextfield()
+                .padding(.horizontal)
+            
+            HStack {
+                Text("Gender").fontWeight(.semibold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 10)
+            }
+            .padding(.leading)
+            .padding(.top, 10)
+            
+            TextField("", text: $gender)
+                .underlinetextfield()
+                .padding(.horizontal)
+            HStack {
+                Text("Username").fontWeight(.semibold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 10)
+            }
+            .padding(.leading)
+            .padding(.top, 10)
+            
             TextField("", text: $username)
                 .underlinetextfield()
-                .padding()
-
-            
+                .padding(.horizontal)
             HStack {
                 Text("Password").fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -55,16 +79,17 @@ struct LoginFormView: View {
                 
             }
             .padding(.leading)
+            .padding(.top, 10)
             ZStack(alignment: .trailing) {
                 HStack {
                     if isPasswordVisible {
                         TextField("", text: $password)
                             .underlinetextfield()
-                            .padding()
+                            .padding(.horizontal)
                     } else {
                         SecureField("", text: $password)
                             .underlinetextfield()
-                            .padding()
+                            .padding(.horizontal)
                     }
                 }
                 HStack {
@@ -81,7 +106,37 @@ struct LoginFormView: View {
                     }
                 }
             }
+            HStack {
+                Text("Email").fontWeight(.semibold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 10)
+            }
+            .padding(.leading)
+            .padding(.top, 10)
+            
+            TextField("", text: $email)
+                .underlinetextfield()
+                .padding(.horizontal)
+            HStack {
+                Text("Birthday").fontWeight(.semibold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 10)
+            }
+            .padding(.leading)
+            .padding(.top, 10)
+            DatePickerTextFields()
+                .padding(.horizontal)
+            
             VStack{
+                VStack{
+                    Text("By tapping Sign Up & Accept, you acknowledge that you have read the\nPrivacy Policy and agree to the Terms of Service. Hangoutters can\nalways capture or save your messages, such as by taking a\nscreenshot or using a camera.")
+                        .font(Font.custom("Inter", size: 10.5))
+                      .multilineTextAlignment(.center)
+                      .foregroundColor(.black)
+                      .frame(width: 414, height: 54, alignment: .center)
+                }
+                .padding(.top, 80)
+                
                 Spacer()
                     // Start the sign in flow!
                 GoogleSignInButtons {
@@ -117,17 +172,13 @@ struct LoginFormView: View {
                             }
                             print("Sign In")
                             UserDefaults.standard.set(true, forKey: "signIn")
-                            needLogin = false
-
-
-                               
                         }
                     }
                 }
                     ZStack{
                         Rectangle()
                             .foregroundColor(.clear)
-                            .frame(width: 208, height: 45)
+                            .frame(width: 208, height: 38)
                             .background(Color(red: 0.26, green: 0.58, blue: 0.97))
                             .cornerRadius(90)
                         
@@ -138,14 +189,15 @@ struct LoginFormView: View {
                                 // Handle the login action when all fields are filled
                             }
                         }) {
-                            Text("LOG IN")
-//                                .font(
-//                                    Font.custom("Inter", size: 14)
-//                                        .weight(.medium)
+                            Text("SIGN UP & ACCEPT")
+                                .font(
+                                    Font.custom("Inter", size: 14)
+                                        .weight(.medium)
+                                )
+//                                .foregroundColor(.white)
                                 .multilineTextAlignment(.center)
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .frame(width: 166, height: 42, alignment: .center)
-                                .bold()
                         }
                         .alert(isPresented: $showEmptyFieldsAlert) {
                             Alert(
@@ -157,6 +209,8 @@ struct LoginFormView: View {
                     }
                     
                 }
+                
+                Spacer()
             }
             
             .frame(height: 700)
@@ -164,17 +218,45 @@ struct LoginFormView: View {
         }
     }
 
-extension View {
-    func underlinetextfield() -> some View {
-        self
-            .overlay(Rectangle().frame(width: .infinity, height: 2)
-            .padding(.top, 30))
-            .foregroundColor(Color.black)
-            .padding(.horizontal, 10)
-    }
-}
-struct LogInFormView_Previews: PreviewProvider {
+//extension View {
+//    func underlinetextfieldedit() -> some View {
+//        self
+//            .padding(.vertical, 10)
+//            .overlay(Rectangle().frame(width: .infinity, height: 2)
+//            .padding(.top, 35))
+//            .foregroundColor(Color.black)
+//            .padding(.horizontal, 10)
+//    }
+//}
+//struct DateTextField: View {
+//
+//    @State private var selectedDate = Date()
+//    private var dateFormatter: DateFormatter {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "MMMM d, yyyy"
+//        return formatter
+//    }
+//
+//    var body: some View {
+//        VStack {
+//            DatePicker("", selection: $selectedDate, displayedComponents: .date)
+//                .datePickerStyle(GraphicalDatePickerStyle())
+//                .labelsHidden()
+//                .foregroundColor(.clear)
+//                .frame(height: 0) // Hide the DatePicker
+//
+//            TextField("Select Date", text: Binding.constant(dateFormatter.string(from: selectedDate)))
+//                .underlinetextfield() // Assuming you have this custom style
+//                .onTapGesture {
+//                    // Show date picker when tapped on the TextField
+//                    // (You might want to present it in a more user-friendly way)
+//                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                }
+//        }
+//    }
+//}
+struct SignUpFormView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginFormView()
+        SignUpFormView()
     }
 }
