@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Boarding3View: View {
-    @AppStorage("isOnBoarding") var isOnBoarding: Bool = true
+    @AppStorage("isOnBoarding") var isOnBoarding: Bool?
     
     var body: some View {
         NavigationView {
