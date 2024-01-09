@@ -122,24 +122,44 @@ struct LoginFormView: View {
                             if let currentUser = Auth.auth().currentUser {
                                 let name = currentUser.displayName ?? ""
                                 let email = currentUser.email ?? ""
-                                let username = currentUser.displayName ?? "" // Update this according to your needs
-                                
+                                let username = email.components(separatedBy: "@").first ?? ""
+
                                 let db = Firestore.firestore()
-                                let userData: [String: Any] = [
-                                    "name": name,
-                                    "email": email,
-                                    "username": username,
-                                ]
-                                
-                                db.collection("users").document(currentUser.uid).setData(userData) { error in
+                                let userRef = db.collection("users").whereField("username", isEqualTo: username)
+
+                                userRef.getDocuments { snapshot, error in
                                     if let error = error {
-                                        // Handle Firestore save error
-                                        print("Error adding document: \(error)")
+                                        print("Error fetching documents: \(error)")
+                                        return
+                                    }
+
+                                    guard let snapshot = snapshot else {
+                                        print("No documents found")
+                                        return
+                                    }
+
+                                    if snapshot.documents.isEmpty {
+                                        let nameComponents = name.components(separatedBy: " ")
+                                        let firstName = nameComponents.first ?? ""
+
+                                        let userData: [String: Any] = [
+                                            "name": firstName,
+                                            "email": email,
+                                            "username": username,
+                                        ]
+
+                                        db.collection("users").document(currentUser.uid).setData(userData) { error in
+                                            if let error = error {
+                                                print("Error adding document: \(error)")
+                                            } else {
+                                                print("Document added!")
+                                            }
+                                        }
                                     } else {
-                                        print("Document added!")
+                                        print("Username already exists in Firestore")
                                     }
                                 }
-                                
+
                                 needLogin = false
                             }
                         }
@@ -199,13 +219,28 @@ struct LoginFormView: View {
 
 extension View {
     func underlinetextfield() -> some View {
-        self
-            .overlay(Rectangle().frame(width: .infinity, height: 2)
-            .padding(.top, 30))
-            .foregroundColor(Color.black)
-            .padding(.horizontal, 10)
+        if UITraitCollection.current.userInterfaceStyle == .dark {
+            return self
+                .overlay(
+                    Rectangle()
+                        .frame(width: .infinity, height: 2)
+                        .padding(.top, 30)
+                )
+                .padding(.horizontal, 10)
+                .foregroundColor(Color.white)
+        } else {
+            return self
+                .overlay(
+                    Rectangle()
+                        .frame(width: .infinity, height: 2)
+                        .padding(.top, 30)
+                )
+                .padding(.horizontal, 10)
+                .foregroundColor(Color.black)
+        }
     }
 }
+
 struct LogInFormView_Previews: PreviewProvider {
     static var previews: some View {
         LoginFormView()

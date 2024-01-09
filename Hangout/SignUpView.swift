@@ -181,24 +181,43 @@ struct SignUpView: View {
                             if let currentUser = Auth.auth().currentUser {
                                 let name = currentUser.displayName ?? ""
                                 let email = currentUser.email ?? ""
-                                let username = currentUser.displayName ?? "" // Update this according to your needs
-                                
+                                let username = email.components(separatedBy: "@").first ?? ""
+
                                 let db = Firestore.firestore()
-                                let userData: [String: Any] = [
-                                    "name": name,
-                                    "email": email,
-                                    "username": username,
-                                ]
-                                
-                                db.collection("users").document(currentUser.uid).setData(userData) { error in
+                                let userRef = db.collection("users").whereField("username", isEqualTo: username)
+
+                                userRef.getDocuments { snapshot, error in
                                     if let error = error {
-                                        // Handle Firestore save error
-                                        print("Error adding document: \(error)")
-                                    } else {
-                                        print("Document added!")
+                                        print("Error fetching documents: \(error)")
+                                        return
                                     }
+
+                                    guard let snapshot = snapshot else {
+                                        print("No documents found")
+                                        return
+                                    }
+
+                                    if snapshot.documents.isEmpty {
+                                        let nameComponents = name.components(separatedBy: " ")
+                                        let firstName = nameComponents.first ?? ""
+
+                                        let userData: [String: Any] = [
+                                            "name": firstName,
+                                            "email": email,
+                                            "username": username,
+                                        ]
+
+                                        db.collection("users").document(currentUser.uid).setData(userData) { error in
+                                            if let error = error {
+                                                print("Error adding document: \(error)")
+                                            } else {
+                                                print("Document added!")
+                                            }
+                                        }
+                                    } else {
+                                        print("Username already exists in Firestore")                                    }
                                 }
-                                
+
                                 needLogin = false
                             }
                         }
@@ -243,7 +262,6 @@ struct SignUpView: View {
     }
     
     func saveUserDataToFirestore() {
-
         guard let hashedPasswordData = password.data(using: .utf8) else {
             print("Error converting password to data")
             return
@@ -253,24 +271,42 @@ struct SignUpView: View {
         let hashedPasswordString = hashedPassword.compactMap { String(format: "%02x", $0) }.joined()
        
         let db = Firestore.firestore()
-        let userData: [String: Any] = [
-            "name": name,
-            "gender": gender,
-            "email": email,
-            "username": username,
-            "password": hashedPasswordString
-        ]
-        
-        db.collection("users").addDocument(data: userData) { error in
+        let userRef = db.collection("users").whereField("username", isEqualTo: username)
+
+        userRef.getDocuments { snapshot, error in
             if let error = error {
-                // Handle Firestore save error
-                print("Error adding document: \(error)")
-                firestoreError = error
+                print("Error fetching documents: \(error)")
+                return
+            }
+
+            guard let snapshot = snapshot else {
+                print("No documents found")
+                return
+            }
+
+            if snapshot.documents.isEmpty {
+                let userData: [String: Any] = [
+                    "name": name,
+                    "gender": gender,
+                    "email": email,
+                    "username": username,
+                    "password": hashedPasswordString
+                ]
+                
+                db.collection("users").addDocument(data: userData) { error in
+                    if let error = error {
+                        print("Error adding document: \(error)")
+                        firestoreError = error
+                    } else {
+                        print("Document added!")
+                    }
+                }
             } else {
-                print("Document added!")
+                print("Username already exists in Firestore")
             }
         }
     }
+
 }
 
 struct SignUpFormView_Previews: PreviewProvider {
