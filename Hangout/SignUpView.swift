@@ -10,7 +10,7 @@ import FirebaseAuth
 import GoogleSignIn
 import Firebase
 import FirebaseFirestore
-
+import CryptoKit
 
 struct SignUpView: View {
     @State var name = ""
@@ -219,13 +219,22 @@ struct SignUpView: View {
     }
     
     func saveUserDataToFirestore() {
+
+        guard let hashedPasswordData = password.data(using: .utf8) else {
+            print("Error converting password to data")
+            return
+        }
+        
+        let hashedPassword = SHA256.hash(data: hashedPasswordData)
+        let hashedPasswordString = hashedPassword.compactMap { String(format: "%02x", $0) }.joined()
+       
         let db = Firestore.firestore()
         let userData: [String: Any] = [
             "name": name,
             "gender": gender,
             "email": email,
             "username": username,
-            "password": password
+            "password": hashedPasswordString
         ]
         
         db.collection("users").addDocument(data: userData) { error in
