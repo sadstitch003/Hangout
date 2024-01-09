@@ -39,7 +39,6 @@ struct ContentView: View {
                     }
                     .tag(3)
             }
-            .padding()
             .accentColor(Color(red: 67/255, green: 147/255, blue: 267/255))
         }
         .edgesIgnoringSafeArea(.bottom)

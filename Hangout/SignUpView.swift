@@ -9,6 +9,8 @@ import SwiftUI
 import FirebaseAuth
 import GoogleSignIn
 import Firebase
+import FirebaseFirestore
+import CryptoKit
 
 struct SignUpView: View {
     @State var name = ""
@@ -19,6 +21,7 @@ struct SignUpView: View {
     @State var isPasswordVisible = false
     @State private var showEmptyFieldsAlert = false
     @State private var selectedDate = Date()
+    @State private var firestoreError: Error?
     
     var body: some View {
         VStack {
@@ -44,6 +47,7 @@ struct SignUpView: View {
             TextField("", text: $name)
                 .underlinetextfield()
                 .padding(.horizontal)
+                .autocapitalization(.none)
             
             HStack {
                 Text("Gender").fontWeight(.semibold)
@@ -53,9 +57,14 @@ struct SignUpView: View {
             .padding(.leading)
             .padding(.top, 10)
             
-            TextField("", text: $gender)
-                .underlinetextfield()
-                .padding(.horizontal)
+            
+            Picker("Gender", selection: $gender) {
+                Text("Male").tag("Male")
+                Text("Female").tag("Female")
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.horizontal)
+            
             HStack {
                 Text("Username").fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -67,6 +76,7 @@ struct SignUpView: View {
             TextField("", text: $username)
                 .underlinetextfield()
                 .padding(.horizontal)
+                .autocapitalization(.none)
             HStack {
                 Text("Password").fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -75,16 +85,19 @@ struct SignUpView: View {
             }
             .padding(.leading)
             .padding(.top, 10)
+            
             ZStack(alignment: .trailing) {
                 HStack {
                     if isPasswordVisible {
                         TextField("", text: $password)
                             .underlinetextfield()
                             .padding(.horizontal)
+                            .autocapitalization(.none)
                     } else {
                         SecureField("", text: $password)
                             .underlinetextfield()
                             .padding(.horizontal)
+                            .autocapitalization(.none)
                     }
                 }
                 HStack {
@@ -112,6 +125,8 @@ struct SignUpView: View {
             TextField("", text: $email)
                 .underlinetextfield()
                 .padding(.horizontal)
+                .autocapitalization(.none)
+            
             HStack {
                 Text("Birthday").fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -167,43 +182,72 @@ struct SignUpView: View {
                         }
                     }
                 }
-                    ZStack{
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 260, height: 42)
-                            .background(Color(red: 0.26, green: 0.58, blue: 0.97))
-                            .cornerRadius(90)
-                        
-                        Button(action: {
-                            if username.isEmpty || password.isEmpty {
-                                showEmptyFieldsAlert.toggle()
-                            } else {
-                                // Handle the login action when all fields are filled
-                            }
-                        }) {
-                            Text("SIGN UP")
-                                .multilineTextAlignment(.center)
-                                .foregroundColor(.white)
-                                .bold()
-                        }
-                        .alert(isPresented: $showEmptyFieldsAlert) {
-                            Alert(
-                                title: Text("Incomplete Fields"),
-                                message: Text("Please fill in all fields."),
-                                dismissButton: .default(Text("OK"))
-                            )
-                        }
-                    }
+                ZStack{
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 260, height: 42)
+                        .background(Color(red: 0.26, green: 0.58, blue: 0.97))
+                        .cornerRadius(90)
                     
+                    Button(action: {
+                        if username.isEmpty || password.isEmpty {
+                            showEmptyFieldsAlert.toggle()
+                        } else {
+                            saveUserDataToFirestore()
+                        }
+                    }) {
+                        Text("SIGN UP")
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.white)
+                            .bold()
+                    }
+                    .alert(isPresented: $showEmptyFieldsAlert) {
+                        Alert(
+                            title: Text("Incomplete Fields"),
+                            message: Text("Please fill in all fields."),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
                 }
                 
-                Spacer()
             }
             
-            .frame(height: 700)
-            .navigationBarBackButtonHidden(true)
+            Spacer()
+        }
+        
+        .frame(height: 700)
+    }
+    
+    func saveUserDataToFirestore() {
+
+        guard let hashedPasswordData = password.data(using: .utf8) else {
+            print("Error converting password to data")
+            return
+        }
+        
+        let hashedPassword = SHA256.hash(data: hashedPasswordData)
+        let hashedPasswordString = hashedPassword.compactMap { String(format: "%02x", $0) }.joined()
+       
+        let db = Firestore.firestore()
+        let userData: [String: Any] = [
+            "name": name,
+            "gender": gender,
+            "email": email,
+            "username": username,
+            "password": hashedPasswordString
+        ]
+        
+        db.collection("users").addDocument(data: userData) { error in
+            if let error = error {
+                // Handle Firestore save error
+                print("Error adding document: \(error)")
+                firestoreError = error
+            } else {
+                print("Document added!")
+            }
         }
     }
+}
 
 struct SignUpFormView_Previews: PreviewProvider {
     static var previews: some View {

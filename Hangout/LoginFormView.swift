@@ -151,7 +151,6 @@ struct LoginFormView: View {
             }
             
             .frame(height: 700)
-            .navigationBarBackButtonHidden(true)
         }
     }
 
