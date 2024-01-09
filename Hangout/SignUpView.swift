@@ -33,7 +33,6 @@ struct SignUpView: View {
                         .system(size: 28)
                     )
                     .multilineTextAlignment(.center)
-                    .foregroundColor(.black)
                     .padding(.top, 20)
                     .frame(width: 120, height: 42, alignment: .center)
             }
@@ -214,10 +213,23 @@ struct SignUpView: View {
                                                 print("Document added!")
                                             }
                                         }
-                                    } else {
-                                        print("Username already exists in Firestore")                                    }
-                                }
+                                        
+                                        let friends: [String: Any] = [
+                                            "username": username
+                                        ]
 
+                                        db.collection("friends").document(currentUser.uid).setData(friends) { error in
+                                            if let error = error {
+                                                print("Error adding document: \(error)")
+                                            } else {
+                                                print("Document added!")
+                                            }
+                                        }
+                                    } else {
+                                        print("Username already exists in Firestore")
+                                    }
+                                }
+                                appUsername = username
                                 needLogin = false
                             }
                         }
@@ -301,6 +313,19 @@ struct SignUpView: View {
                         print("Document added!")
                     }
                 }
+                
+                let friends: [String: Any] = [
+                    "username": username
+                ]
+
+                db.collection("friends").addDocument(data: friends) { error in
+                    if let error = error {
+                        print("Error adding document: \(error)")
+                    } else {
+                        print("Document added!")
+                    }
+                }
+                
             } else {
                 print("Username already exists in Firestore")
             }

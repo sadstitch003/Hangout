@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FriendView: View {
+    @AppStorage("appName") var appName: String?
+    
     var body: some View {
         Text("Friends")
     }
