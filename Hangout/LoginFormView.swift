@@ -9,13 +9,17 @@ import SwiftUI
 import FirebaseAuth
 import GoogleSignIn
 import Firebase
+import FirebaseFirestore
+
 
 struct LoginFormView: View {
     @State var username = ""
     @State var password = ""
     @State var isPasswordVisible = false
+    @StateObject private var authManager = AuthenticationManager.shared
     @State private var showEmptyFieldsAlert = false
     @AppStorage("needLogin") var needLogin: Bool?
+    @AppStorage("appUsername") var appUsername: String?
     
     var body: some View {
         VStack {
@@ -33,16 +37,18 @@ struct LoginFormView: View {
             
             VStack{
                 HStack {
-                    Text("Username or Email")
+                    Text("Username")
                         .fontWeight(.semibold)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 10)
+                        
                 }
                 .padding(.leading)
                 
                 TextField("", text: $username)
                     .underlinetextfield()
                     .padding(.horizontal)
+                    .autocapitalization(.none)
             }
             .padding(.bottom)
             
@@ -60,10 +66,12 @@ struct LoginFormView: View {
                             TextField("", text: $password)
                                 .underlinetextfield()
                                 .padding(.horizontal)
+                                .autocapitalization(.none)
                         } else {
                             SecureField("", text: $password)
                                 .underlinetextfield()
                                 .padding(.horizontal)
+                                .autocapitalization(.none)
                         }
                     }
                     HStack {
@@ -114,11 +122,12 @@ struct LoginFormView: View {
                             print("Sign In")
                             UserDefaults.standard.set(true, forKey: "signIn")
                             needLogin = false
-      
                         }
                     }
                 }
                 
+
+
                 ZStack{
                     Rectangle()
                         .foregroundColor(.clear)
@@ -131,6 +140,19 @@ struct LoginFormView: View {
                             showEmptyFieldsAlert.toggle()
                         } else {
                             // Handle the login action when all fields are filled
+                            authManager.authenticateUser(username: username, password: password) { success in
+                                if success {
+                                    // Handle successful login
+                                    print("Login successful")
+                                    appUsername = username
+                                    needLogin = false
+                                
+                                } else {
+                                    // Handle failed login
+                                    print("Login failed")
+                                }
+                            }
+                            
                         }
                     }) {
                         Text("LOG IN")

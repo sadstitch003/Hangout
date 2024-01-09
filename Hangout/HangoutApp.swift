@@ -24,7 +24,7 @@ struct HangoutApp: App {
             }
             else if needLogin
             {
-                LoginFormView()
+                LoginView()
             }
             else
             {

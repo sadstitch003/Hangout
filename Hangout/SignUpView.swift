@@ -22,6 +22,8 @@ struct SignUpView: View {
     @State private var showEmptyFieldsAlert = false
     @State private var selectedDate = Date()
     @State private var firestoreError: Error?
+    @AppStorage("needLogin") var needLogin: Bool?
+    @AppStorage("appUsername") var appUsername: String?
     
     var body: some View {
         VStack {
@@ -179,6 +181,7 @@ struct SignUpView: View {
                             }
                             print("Sign In")
                             UserDefaults.standard.set(true, forKey: "signIn")
+                            needLogin = false
                         }
                     }
                 }
@@ -194,6 +197,8 @@ struct SignUpView: View {
                             showEmptyFieldsAlert.toggle()
                         } else {
                             saveUserDataToFirestore()
+                            appUsername = username
+                            needLogin = false
                         }
                     }) {
                         Text("SIGN UP")

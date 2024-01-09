@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0465D9AA2B4C71BA00291641 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0465D9A92B4C71BA00291641 /* GoogleService-Info.plist */; };
+		043F4AE62B4CFDE300E10E43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 043F4AE52B4CFDE300E10E43 /* GoogleService-Info.plist */; };
+		043F4AE82B4D071900E10E43 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F4AE72B4D071900E10E43 /* AuthenticationManager.swift */; };
 		0465D9AC2B4C723400291641 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0465D9AB2B4C723400291641 /* FirebaseFirestore */; };
 		049227A22B1BF72D00DD98CA /* HangoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227A12B1BF72D00DD98CA /* HangoutApp.swift */; };
 		049227A42B1BF72D00DD98CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227A32B1BF72D00DD98CA /* ContentView.swift */; };
@@ -53,7 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0465D9A92B4C71BA00291641 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		043F4AE52B4CFDE300E10E43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		043F4AE72B4D071900E10E43 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		0492279E2B1BF72D00DD98CA /* Hangout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049227A12B1BF72D00DD98CA /* HangoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutApp.swift; sourceTree = "<group>"; };
 		049227A32B1BF72D00DD98CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,12 +155,13 @@
 				04A6D2A12B4B0A110060222E /* DatePickerTextFields.swift */,
 				04A6D2892B4AFE7E0060222E /* SignUpView.swift */,
 				049227A32B1BF72D00DD98CA /* ContentView.swift */,
+				043F4AE72B4D071900E10E43 /* AuthenticationManager.swift */,
 				049227A52B1BF73000DD98CA /* Assets.xcassets */,
 				049227D32B1C805D00DD98CA /* MapView.swift */,
 				049227CB2B1C475800DD98CA /* SplitBillView.swift */,
 				049227D52B1C808700DD98CA /* MessageView.swift */,
 				049227CF2B1C47DE00DD98CA /* FriendView.swift */,
-				0465D9A92B4C71BA00291641 /* GoogleService-Info.plist */,
+				043F4AE52B4CFDE300E10E43 /* GoogleService-Info.plist */,
 				049227A72B1BF73000DD98CA /* Preview Content */,
 			);
 			path = Hangout;
@@ -313,8 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				049227A92B1BF73000DD98CA /* Preview Assets.xcassets in Resources */,
-				0465D9AA2B4C71BA00291641 /* GoogleService-Info.plist in Resources */,
 				049227A62B1BF73000DD98CA /* Assets.xcassets in Resources */,
+				043F4AE62B4CFDE300E10E43 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +352,7 @@
 				049227D42B1C805D00DD98CA /* MapView.swift in Sources */,
 				04A6D2902B4B031F0060222E /* AppDelegates.swift in Sources */,
 				049227DC2B1CCD7E00DD98CA /* LoginFormView.swift in Sources */,
+				043F4AE82B4D071900E10E43 /* AuthenticationManager.swift in Sources */,
 				049227CC2B1C475800DD98CA /* SplitBillView.swift in Sources */,
 				04A6D28A2B4AFE7E0060222E /* SignUpView.swift in Sources */,
 				04C062822B2B44C1008E8362 /* Boarding2View.swift in Sources */,
