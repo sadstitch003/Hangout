@@ -30,6 +30,7 @@
 		04A6D29E2B4B09630060222E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 04A6D29D2B4B09630060222E /* GoogleSignInSwift */; };
 		04A6D2A02B4B09990060222E /* GoogleSignInButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D29F2B4B09990060222E /* GoogleSignInButtons.swift */; };
 		04A6D2A22B4B0A110060222E /* DatePickerTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D2A12B4B0A110060222E /* DatePickerTextFields.swift */; };
+		04AC04F32B4D592000EF70E0 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC04F22B4D592000EF70E0 /* AuthenticationManager.swift */; };
 		04C062802B2B4330008E8362 /* BoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0627F2B2B4330008E8362 /* BoardingView.swift */; };
 		04C062822B2B44C1008E8362 /* Boarding2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C062812B2B44C1008E8362 /* Boarding2View.swift */; };
 		04C062842B2B44E6008E8362 /* Boarding3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C062832B2B44E6008E8362 /* Boarding3View.swift */; };
@@ -76,6 +77,7 @@
 		04A6D2972B4B071C0060222E /* +Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Views.swift"; sourceTree = "<group>"; };
 		04A6D29F2B4B09990060222E /* GoogleSignInButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButtons.swift; sourceTree = "<group>"; };
 		04A6D2A12B4B0A110060222E /* DatePickerTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTextFields.swift; sourceTree = "<group>"; };
+		04AC04F22B4D592000EF70E0 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		04C0627F2B2B4330008E8362 /* BoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingView.swift; sourceTree = "<group>"; };
 		04C062812B2B44C1008E8362 /* Boarding2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boarding2View.swift; sourceTree = "<group>"; };
 		04C062832B2B44E6008E8362 /* Boarding3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boarding3View.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				04A6D2962B4B06290060222E /* Info.plist */,
 				04A6D28E2B4B02E40060222E /* Helpers */,
 				049227A12B1BF72D00DD98CA /* HangoutApp.swift */,
+				04AC04F22B4D592000EF70E0 /* AuthenticationManager.swift */,
 				04C0627F2B2B4330008E8362 /* BoardingView.swift */,
 				04C062812B2B44C1008E8362 /* Boarding2View.swift */,
 				04C062832B2B44E6008E8362 /* Boarding3View.swift */,
@@ -349,6 +352,7 @@
 				049227D42B1C805D00DD98CA /* MapView.swift in Sources */,
 				04A6D2902B4B031F0060222E /* AppDelegates.swift in Sources */,
 				049227DC2B1CCD7E00DD98CA /* LoginFormView.swift in Sources */,
+				04AC04F32B4D592000EF70E0 /* AuthenticationManager.swift in Sources */,
 				049227CC2B1C475800DD98CA /* SplitBillView.swift in Sources */,
 				04A6D28A2B4AFE7E0060222E /* SignUpView.swift in Sources */,
 				04C062822B2B44C1008E8362 /* Boarding2View.swift in Sources */,

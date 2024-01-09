@@ -22,6 +22,8 @@ struct SignUpView: View {
     @State private var showEmptyFieldsAlert = false
     @State private var selectedDate = Date()
     @State private var firestoreError: Error?
+    @AppStorage("needLogin") var needLogin: Bool?
+    @AppStorage("appUsername") var appUsername: String?
     
     var body: some View {
         VStack {
@@ -164,21 +166,41 @@ struct SignUpView: View {
 
                         guard let user = result?.user,
                               let idToken = user.idToken?.tokenString else {
-                            // Handle the missing user or ID token...
                             print("Error: Missing user or ID token")
                             return
                         }
 
-                        let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                        accessToken: user.accessToken.tokenString)
+                        let credential = GoogleAuthProvider.credential(withIDToken: idToken,accessToken: user.accessToken.tokenString)
 
-                        Auth.auth().signIn(with: credential) {
-                        result, error in
+                        Auth.auth().signIn(with: credential) { authResult, error in
                             guard error == nil else {
+                                print("Error during Firebase sign in: \(error!)")
                                 return
                             }
-                            print("Sign In")
-                            UserDefaults.standard.set(true, forKey: "signIn")
+
+                            if let currentUser = Auth.auth().currentUser {
+                                let name = currentUser.displayName ?? ""
+                                let email = currentUser.email ?? ""
+                                let username = currentUser.displayName ?? "" // Update this according to your needs
+                                
+                                let db = Firestore.firestore()
+                                let userData: [String: Any] = [
+                                    "name": name,
+                                    "email": email,
+                                    "username": username,
+                                ]
+                                
+                                db.collection("users").document(currentUser.uid).setData(userData) { error in
+                                    if let error = error {
+                                        // Handle Firestore save error
+                                        print("Error adding document: \(error)")
+                                    } else {
+                                        print("Document added!")
+                                    }
+                                }
+                                
+                                needLogin = false
+                            }
                         }
                     }
                 }
@@ -194,6 +216,8 @@ struct SignUpView: View {
                             showEmptyFieldsAlert.toggle()
                         } else {
                             saveUserDataToFirestore()
+                            appUsername = username
+                            needLogin = false
                         }
                     }) {
                         Text("SIGN UP")
