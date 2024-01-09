@@ -53,7 +53,7 @@ struct Boarding3View: View {
                         .font(.title2)
                         .bold()
                         .padding(10)
-                        .frame(width: 280)
+                        .frame(width: 280, height: 50)
                         .foregroundColor(.white)
                         .background(Color(red: 67/255, green: 147/255, blue: 267/255))
                         .cornerRadius(50)
