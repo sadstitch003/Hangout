@@ -44,15 +44,19 @@ struct Boarding2View: View {
                 .padding()
                 
                 NavigationLink(destination: Boarding3View()) {
-                    Text("Continue")
-                        .font(.title2)
-                        .bold()
+                    ZStack{
+                        Rectangle()
+                            .foregroundColor(Color(red: 67/255, green: 147/255, blue: 267/255))
+                            .background()
+                            .cornerRadius(50)
+                        
+                        Text("Continue")
+                            .font(.title2)
+                            .bold()
+                            .foregroundColor(.white)
+                    }
                 }
-                .padding(10)
-                .frame(width: 280)
-                .foregroundColor(.white)
-                .background(Color(red: 67/255, green: 147/255, blue: 267/255))
-                .cornerRadius(50)
+                .frame(width: 280, height: 50)
             }
             .padding(40)
         }
