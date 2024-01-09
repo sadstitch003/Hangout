@@ -166,22 +166,41 @@ struct SignUpView: View {
 
                         guard let user = result?.user,
                               let idToken = user.idToken?.tokenString else {
-                            // Handle the missing user or ID token...
                             print("Error: Missing user or ID token")
                             return
                         }
 
-                        let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                        accessToken: user.accessToken.tokenString)
+                        let credential = GoogleAuthProvider.credential(withIDToken: idToken,accessToken: user.accessToken.tokenString)
 
-                        Auth.auth().signIn(with: credential) {
-                        result, error in
+                        Auth.auth().signIn(with: credential) { authResult, error in
                             guard error == nil else {
+                                print("Error during Firebase sign in: \(error!)")
                                 return
                             }
-                            print("Sign In")
-                            UserDefaults.standard.set(true, forKey: "signIn")
-                            needLogin = false
+
+                            if let currentUser = Auth.auth().currentUser {
+                                let name = currentUser.displayName ?? ""
+                                let email = currentUser.email ?? ""
+                                let username = currentUser.displayName ?? "" // Update this according to your needs
+                                
+                                let db = Firestore.firestore()
+                                let userData: [String: Any] = [
+                                    "name": name,
+                                    "email": email,
+                                    "username": username,
+                                ]
+                                
+                                db.collection("users").document(currentUser.uid).setData(userData) { error in
+                                    if let error = error {
+                                        // Handle Firestore save error
+                                        print("Error adding document: \(error)")
+                                    } else {
+                                        print("Document added!")
+                                    }
+                                }
+                                
+                                needLogin = false
+                            }
                         }
                     }
                 }
