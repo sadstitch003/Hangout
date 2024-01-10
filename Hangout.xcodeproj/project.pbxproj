@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0465D9AC2B4C723400291641 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0465D9AB2B4C723400291641 /* FirebaseFirestore */; };
+		04684E982B4EDB2C00DD3D31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04684E972B4EDB2B00DD3D31 /* GoogleService-Info.plist */; };
 		049227A22B1BF72D00DD98CA /* HangoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227A12B1BF72D00DD98CA /* HangoutApp.swift */; };
 		049227A42B1BF72D00DD98CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227A32B1BF72D00DD98CA /* ContentView.swift */; };
 		049227A62B1BF73000DD98CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049227A52B1BF73000DD98CA /* Assets.xcassets */; };
@@ -33,7 +34,6 @@
 		04C062802B2B4330008E8362 /* BoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0627F2B2B4330008E8362 /* BoardingView.swift */; };
 		04C062822B2B44C1008E8362 /* Boarding2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C062812B2B44C1008E8362 /* Boarding2View.swift */; };
 		04C062842B2B44E6008E8362 /* Boarding3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C062832B2B44E6008E8362 /* Boarding3View.swift */; };
-		04F52C4A2B4EC35B00329F05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F52C492B4EC35B00329F05 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04684E972B4EDB2B00DD3D31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0492279E2B1BF72D00DD98CA /* Hangout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049227A12B1BF72D00DD98CA /* HangoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutApp.swift; sourceTree = "<group>"; };
 		049227A32B1BF72D00DD98CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		04C0627F2B2B4330008E8362 /* BoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingView.swift; sourceTree = "<group>"; };
 		04C062812B2B44C1008E8362 /* Boarding2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boarding2View.swift; sourceTree = "<group>"; };
 		04C062832B2B44E6008E8362 /* Boarding3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boarding3View.swift; sourceTree = "<group>"; };
-		04F52C492B4EC35B00329F05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +160,7 @@
 				049227D32B1C805D00DD98CA /* MapView.swift */,
 				049227CB2B1C475800DD98CA /* SplitBillView.swift */,
 				049227D52B1C808700DD98CA /* MessageView.swift */,
-				04F52C492B4EC35B00329F05 /* GoogleService-Info.plist */,
+				04684E972B4EDB2B00DD3D31 /* GoogleService-Info.plist */,
 				049227CF2B1C47DE00DD98CA /* FriendView.swift */,
 				049227A72B1BF73000DD98CA /* Preview Content */,
 			);
@@ -316,8 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				049227A92B1BF73000DD98CA /* Preview Assets.xcassets in Resources */,
+				04684E982B4EDB2C00DD3D31 /* GoogleService-Info.plist in Resources */,
 				049227A62B1BF73000DD98CA /* Assets.xcassets in Resources */,
-				04F52C4A2B4EC35B00329F05 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

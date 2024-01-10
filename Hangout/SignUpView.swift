@@ -224,6 +224,21 @@ struct SignUpView: View {
                                                 print("Document added!")
                                             }
                                         }
+                                        
+                                        let locations: [String: Any] = [
+                                            "username": username,
+                                            "name": firstName,
+                                            "longitude": "",
+                                            "latitude": ""
+                                        ]
+                                        
+                                        db.collection("locations").document(currentUser.uid).setData(locations) { error in
+                                            if let error = error {
+                                                print("Error adding document: \(error)")
+                                            } else {
+                                                print("Document added!")
+                                            }
+                                        }
                                     } else {
                                         print("Username already exists in Firestore")
                                     }
@@ -326,6 +341,20 @@ struct SignUpView: View {
                     }
                 }
                 
+                let locations: [String: Any] = [
+                    "username": username,
+                    "name": name,
+                    "longitude": "",
+                    "latitude": ""
+                ]
+                
+                db.collection("locations").addDocument(data: locations) { error in
+                    if let error = error {
+                        print("Error adding document: \(error)")
+                    } else {
+                        print("Document added!")
+                    }
+                }
             } else {
                 print("Username already exists in Firestore")
             }
