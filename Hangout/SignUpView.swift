@@ -214,8 +214,7 @@ struct SignUpView: View {
                                         }
                                         
                                         let friends: [String: Any] = [
-                                            "username": username,
-                                            "hangout": "Hangout"
+                                            "username": username
                                         ]
 
                                         db.collection("friends").document(currentUser.uid).setData(friends) { error in
