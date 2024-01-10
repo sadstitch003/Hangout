@@ -7,7 +7,6 @@
 
 import SwiftUI
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 struct Friend: Decodable, Identifiable{
     var id = UUID()
