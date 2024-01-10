@@ -67,13 +67,15 @@ struct MapView: View {
     func updateLocation() {
         let db = Firestore.firestore()
         
-        guard let username = appUsername else {
+        guard let username = appUsername,
+              let userLatitude = coordinator.userLocation?.latitude,
+              let userLongitude = coordinator.userLocation?.longitude else {
             return
         }
-        
+
         let locations: [String: Any] = [
-            "longitude": "",
-            "latitude": ""
+            "latitude": "\(userLatitude)",
+            "longitude": "\(userLongitude)"
         ]
         
         db.collection("locations")
