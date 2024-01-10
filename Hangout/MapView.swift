@@ -60,9 +60,42 @@ struct MapView: View {
         Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
             
             fetchFirestoreData()
+            updateLocation()
         }
     }
 
+    func updateLocation() {
+        let db = Firestore.firestore()
+        
+        guard let username = appUsername else {
+            return
+        }
+        
+        let locations: [String: Any] = [
+            "longitude": "",
+            "latitude": ""
+        ]
+        
+        db.collection("locations")
+            .whereField("username", isEqualTo: username)
+            .getDocuments { (querySnapshot, error) in
+               if let error = error {
+                   print("Error getting documents: \(error)")
+               } else {
+                   for document in querySnapshot!.documents {
+                       let documentRef = document.reference
+                       documentRef.updateData(locations) { error in
+                           if let error = error {
+                               print("Error updating document: \(error)")
+                           } else {
+                               print("Document updated!")
+                           }
+                       }
+                   }
+               }
+           }
+    }
+    
     func fetchFirestoreData() {
         let db = Firestore.firestore()
         var friends: [String] = []

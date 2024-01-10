@@ -158,6 +158,24 @@ struct FriendView: View {
                     }
                 }
             }
+        
+        if let name = appName {
+            db.collection("friends")
+                .whereField("username", isEqualTo: newFriendID)
+                .getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error)")
+                    } else {
+                        if let documents = querySnapshot?.documents {
+                            for document in documents {
+                                // Assuming you want to update the document with a new username
+                                let documentRef = document.reference
+                                documentRef.setData([username: name], merge: true)
+                            }
+                        }
+                    }
+                }
+        }
     }
 
 }
