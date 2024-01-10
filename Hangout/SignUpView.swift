@@ -144,7 +144,6 @@ struct SignUpView: View {
                     Text("By tapping Sign Up & Accept, you acknowledge that you have read the\nPrivacy Policy and agree to the Terms of Service. Hangoutters can\nalways capture or save your messages, such as by taking a\nscreenshot or using a camera.")
                         .font(Font.custom("Inter", size: 10.5))
                       .multilineTextAlignment(.center)
-                      .foregroundColor(.black)
                       .frame(width: 414, height: 54, alignment: .center)
                 }
                 .padding(.top, 40)
