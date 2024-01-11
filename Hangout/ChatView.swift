@@ -1,7 +1,7 @@
 import SwiftUI
 import FirebaseFirestore
 
-struct Chat {
+struct Chat: Identifiable, Equatable {
     let id = UUID()
     let isSender: Bool?
     let date_time: String?
@@ -18,7 +18,9 @@ struct ChatView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            // Modified HStack to fix the issue
+            HStack(spacing: 5) {
+                
                 Circle()
                     .fill(Color(red: 0.26, green: 0.58, blue: 0.97))
                     .frame(width: 40, height: 40)
@@ -27,24 +29,43 @@ struct ChatView: View {
                             .foregroundColor(.white)
                             .font(.headline)
                     )
-                    .padding(.trailing, 5)
-
                 Text(contactName ?? "")
                     .bold()
+                
             }
 
+
             ScrollView {
-                ForEach(chatHistory, id: \.id) { chat in
-                    ChatBubble(message: chat.chat ?? "", isSender: chat.isSender ?? false, datetime: chat.date_time ?? "")
+                ScrollViewReader { scrollView in
+                    ForEach(chatHistory, id: \.id) { chat in
+                        ChatBubble(message: chat.chat ?? "", isSender: chat.isSender ?? false, datetime: chat.date_time ?? "")
+                            .id(chat.id)
+                    }
+                    .onChange(of: chatHistory) { _ in
+                        // Scroll to the bottom whenever chatHistory is updated
+                        DispatchQueue.main.async {
+                            
+                                scrollView.scrollTo(chatHistory.last?.id, anchor: .bottom)
+                            
+                        }
+                    }
+                    .onAppear {
+                        // Scroll to the bottom when the chat view appears
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            withAnimation {
+                                scrollView.scrollTo(chatHistory.last?.id, anchor: .bottom)
+                            }
+                        }
+                    }
                 }
             }
+
             .onAppear {
                 fetchChatHistory()
                 startTimer()
             }
             
-            .frame(width: .infinity)
-            .padding(5)
+           
 
             HStack {
                 TextField("Type your message", text: $newMessage)
@@ -63,7 +84,9 @@ struct ChatView: View {
                 .padding(.trailing)
             }
         }
+        
         .padding(10)
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     func fetchChatHistory() {
