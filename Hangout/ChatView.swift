@@ -1,11 +1,20 @@
 import SwiftUI
+import FirebaseFirestore
+
+struct Chat {
+    let id = UUID()
+    let isSender: Bool?
+    let date_time: String?
+    let chat: String?
+}
 
 struct ChatView: View {
+    let contactName: String?
+    let contactUsername: String?
+    @State private var chatHistory: [Chat] = []
+    @AppStorage("appUsername") var appUsername: String?
     @State private var newMessage: String = ""
-    
-    let sender: String
-    let recipient: String
-    @State private var scrollProxy: ScrollViewProxy?
+    @State private var timer: Timer?
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -14,57 +23,37 @@ struct ChatView: View {
                     .fill(Color(red: 0.26, green: 0.58, blue: 0.97))
                     .frame(width: 40, height: 40)
                     .overlay(
-                        Text(String(recipient.prefix(1)))
+                        Text(String(contactName?.prefix(1) ?? ""))
                             .foregroundColor(.white)
                             .font(.headline)
                     )
                     .padding(.trailing, 5)
-                
-                Text(recipient)
+
+                Text(contactName ?? "")
                     .bold()
             }
-            
-            
+
             ScrollView {
-                ScrollViewReader { proxy in
-                    VStack {
-                        ChatBubble(message: "Hello, this is a message from the sender", isSender: true)
-                        ChatBubble(message: "Hi, this is a message from the recipient", isSender: false)
-                        ChatBubble(message: "Hello, this is a message from the sender", isSender: true)
-                        ChatBubble(message: "Hi, this is a message from the recipient", isSender: false)
-                        ChatBubble(message: "Hello, this is a message from the sender", isSender: true)
-                        ChatBubble(message: "Hi, this is a message from the recipient", isSender: false)
-                        ChatBubble(message: "Hello, this is a message from the sender", isSender: true)
-                        ChatBubble(message: "Hi, this is a message from the recipient", isSender: false)
-                        ChatBubble(message: "Hello, this is a message from the sender", isSender: true)
-                        ChatBubble(message: "Hi, this is a message from the recipient", isSender: false)
-                        ChatBubble(message: "Hello, this is a message from the sender", isSender: true)
-                        ChatBubble(message: "Hi, this is a message from the recipient", isSender: false)
-                        ChatBubble(message: "Hello, this is a message from the senssssder", isSender: true)
-                        ChatBubble(message: "Hi, this is a message fromssthe sss", isSender: false)
-                        ChatBubble(message: "Hello, this is a message from the sewwwnder", isSender: true)
-                        ChatBubble(message: "Hi, this is a message from the recipwwwwwient", isSender: false)
-                    }
-                    .onChange(of: newMessage) { _ in
-                        proxy.scrollTo("bottom", anchor: .bottom)
-                    }
-                    .padding(.bottom, 50)
-                    .onAppear {
-                        scrollProxy = proxy
-                        DispatchQueue.main.async {
-                            proxy.scrollTo("bottom", anchor: .bottom)
-                        }
-                    }
+                ForEach(chatHistory, id: \.id) { chat in
+                    ChatBubble(message: chat.chat ?? "", isSender: chat.isSender ?? false, datetime: chat.date_time ?? "")
                 }
-                .id("bottom")
+            }
+            .onAppear {
+                fetchChatHistory()
+                startTimer()
             }
             
+            .frame(width: .infinity)
+            .padding(5)
+
             HStack {
                 TextField("Type your message", text: $newMessage)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                
+                    .padding(.leading, 10)
+
                 Button(action: {
                     // Handle sending the message here
+                    sendMessage()
                 }) {
                     Image(systemName: "paperplane.circle.fill")
                         .resizable()
@@ -74,36 +63,120 @@ struct ChatView: View {
                 .padding(.trailing)
             }
         }
-        .padding(30)
+        .padding(10)
+    }
+
+    func fetchChatHistory() {
+        // Simulating fetching chat history from Firestore
+        chatHistory = []
+        let db = Firestore.firestore()
+
+        db.collection("chats")
+            .whereField("sender", in: [appUsername, contactUsername])
+            .whereField("recipient", in: [appUsername, contactUsername])
+            .getDocuments { querySnapshot, error in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    for document in querySnapshot?.documents ?? [] {
+                        if let sender = document["sender"] as? String,
+                           let date_time = document["date_time"] as? String,
+                           let chat = document["chat"] as? String {
+                            let chatData = Chat(isSender: sender == appUsername, date_time: date_time, chat: chat)
+                            chatHistory.append(chatData)
+                        }
+                    }
+
+                    // Sort chatHistory by date_time in descending order
+                    chatHistory.sort { (chat1, chat2) -> Bool in
+                        if let date1 = chat1.date_time, let date2 = chat2.date_time {
+                            return date1 > date2
+                        }
+                        return false
+                    }
+                }
+            }
+    }
+
+
+    func sendMessage() {
+        let db = Firestore.firestore()
+
+        // Get the current date and time in the desired format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let currentDateTime = dateFormatter.string(from: Date())
+
+        // Prepare chat data
+        let chatData: [String: Any] = [
+            "sender": appUsername ?? "",
+            "recipient": contactUsername ?? "",
+            "chat": newMessage,
+            "date_time": currentDateTime
+        ]
+
+        // Add chatData to Firestore
+        db.collection("chats").addDocument(data: chatData) { error in
+            if let error = error {
+                print("Error adding document: \(error)")
+            } else {
+                print("Document added successfully")
+                fetchChatHistory() // Refresh chat history after sending a message
+            }
+        }
+
+        // Clear the input field after sending a message
+        newMessage = ""
+    }
+
+
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { _ in
+            fetchChatHistory()
+        }
     }
 }
 
 struct ChatBubble: View {
     let message: String
     let isSender: Bool
+    let datetime: String // Add a datetime parameter
 
     var body: some View {
-        HStack {
-            if isSender {
-                Spacer()
+        VStack(alignment: isSender ? .trailing : .leading) {
+            HStack {
+                if isSender {
+                    Spacer()
+                }
+                Text(message)
+                    .padding(8)
+                    .background(isSender ? Color(red: 67/255, green: 147/255, blue: 267/255) : Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                    .padding(2)
+                if !isSender {
+                    Spacer()
+                }
             }
-            
-            Text(message)
-                .padding(8)
-                .background(isSender ? Color(red: 67/255, green: 147/255, blue: 267/255) : Color.gray)
-                .foregroundColor(.white)
-                .cornerRadius(8)
-                .padding(4)
-            
-            if !isSender {
-                Spacer()
+            HStack{
+                if isSender {
+                    Spacer()
+                }
+                Text(datetime)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                    .padding(.trailing, 4)
+                if !isSender {
+                    Spacer()
+                }
             }
-        }
+        }.padding(.horizontal, 10)
     }
 }
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView(sender: "SenderName", recipient: "Recipient1")
+        ChatView(contactName: "RecipientName", contactUsername: "RecipientName")
     }
 }
+                 
