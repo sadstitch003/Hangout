@@ -62,7 +62,6 @@ struct FriendView: View {
             
             Button(action: {
                 addFriend()
-                newFriendID = ""
             }) {
                 ZStack {
                     Rectangle()
@@ -139,6 +138,7 @@ struct FriendView: View {
                                             let documentID = friendDocument.documentID
                                             print("Asdasd")
                                             print(documentID)
+                                            print(newFriendID)
                                             db.collection("friends")
                                                 .document(documentID)
                                                 .setData([
@@ -148,6 +148,7 @@ struct FriendView: View {
                                                         print("Error adding friend: \(error)")
                                                     } else {
                                                         fetchFriendDetails()
+                                                        newFriendID = ""
                                                     }
                                                 }
                                         }
