@@ -18,7 +18,6 @@ struct FriendView: View {
     @AppStorage("appName") var appName: String?
     @AppStorage("appUsername") var appUsername: String?
     @State var friends: [Friend] = []
-    @State var db = Firestore.firestore()
     @State var newFriendID: String = ""
     @State var newFriendName: String = ""
     
@@ -94,7 +93,7 @@ struct FriendView: View {
         }
         
         friends = []
-        
+        let db = Firestore.firestore()
         db.collection("friends")
             .whereField("username", isEqualTo: username)
             .getDocuments { querySnapshot, error in
@@ -121,7 +120,7 @@ struct FriendView: View {
         guard let username = appUsername else {
             return
         }
-        
+        let db = Firestore.firestore()
         db.collection("users")
             .whereField("username", isEqualTo: newFriendID)
             .getDocuments { querySnapshot, error in
@@ -138,7 +137,8 @@ struct FriendView: View {
                                     } else if let documents = querySnapshot?.documents {
                                         if let friendDocument = documents.first {
                                             let documentID = friendDocument.documentID
-                                            
+                                            print("Asdasd")
+                                            print(documentID)
                                             db.collection("friends")
                                                 .document(documentID)
                                                 .setData([
@@ -151,6 +151,7 @@ struct FriendView: View {
                                                     }
                                                 }
                                         }
+                                        print("SADASDASDASD")
                                     }
                                 }
                         }

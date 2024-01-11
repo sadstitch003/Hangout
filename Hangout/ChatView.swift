@@ -90,7 +90,7 @@ struct ChatView: View {
                     // Sort chatHistory by date_time in descending order
                     chatHistory.sort { (chat1, chat2) -> Bool in
                         if let date1 = chat1.date_time, let date2 = chat2.date_time {
-                            return date1 > date2
+                            return date2 > date1
                         }
                         return false
                     }

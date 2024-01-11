@@ -78,16 +78,18 @@ struct MessageView: View {
                 if let error = error {
                     print("Error getting documents: \(error)")
                 } else {
-                    for document in querySnapshot?.documents ?? [] {
-                        if let name = document["name"] as? String,
-                           let username = document["username"] as? String{ // Retrieve 'status' from Firestore
-                            let contact = Contact(username: username, name: name, status: "Hi, I'm using Hangout.")
-                            contacts.append(contact)
+                    if let document = querySnapshot?.documents.first {
+                        for field in document.data() {
+                            if(field.key != "username"){
+                                if let fieldValue = field.value as? String, field.key != "username" {
+                                    let friend = Contact(username: field.key, name: fieldValue, status: "Hey, I'm using Hangout.")
+                                    contacts.append(friend)
+                                }
+                            }
                         }
+                        
+                        contacts.sort { $0.name < $1.name }
                     }
-
-                    // Sorting contacts by name
-                    contacts.sort { $0.name < $1.name }
                 }
             }
     }
