@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseFirestore
 
 struct SplitBillView: View {
     @State private var totalAmount = ""
@@ -6,8 +7,9 @@ struct SplitBillView: View {
     @State private var activityName = ""
     @State private var tax = ""
     @State private var isChoosingFriends = false
-    @State private var selectedFriends: [String] = [] // Keep track of selected friends
-    let allFriends = ["Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5"] // Add your friend names here
+    @State private var selectedFriends: [String] = []
+    @State private var allFriends: [String] = []
+    @AppStorage("appUsername") var appUsername: String?
 
     var body: some View {
         NavigationView {
@@ -54,10 +56,11 @@ struct SplitBillView: View {
                 Spacer()
 
                 Button(action: {
-                    // Add the action to send the bill to selected friends
+                    sendBill()
                     print("Sending Bill to: \(selectedFriends.joined(separator: ", "))")
+                    resetFields()
                 }) {
-                    Text("Send Bill to Selected Friends")
+                    Text("Send Bill")
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.blue)
@@ -65,13 +68,94 @@ struct SplitBillView: View {
                         .cornerRadius(50)
                         .bold()
                 }
-                .padding()
+                .foregroundColor(Color.white)
+                .frame(width: 260, height: 42)
+                .background(Color(red: 0.26, green: 0.58, blue: 0.97))
+                .cornerRadius(90)
+                .padding(20)
             }
             .navigationBarTitle("Split Bill")
             .sheet(isPresented: $isChoosingFriends) {
                 FriendsListView(allFriends: allFriends, selectedFriends: $selectedFriends)
             }
         }
+        .onAppear {
+            fetchFriend()
+        }
+    }
+
+    func resetFields() {
+        totalAmount = ""
+        numberOfPeople = ""
+        activityName = ""
+        tax = ""
+        isChoosingFriends = false
+        selectedFriends = []
+    }
+
+    func sendBill() {
+        let db = Firestore.firestore()
+
+        // Get the current date and time in the desired format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let currentDateTime = dateFormatter.string(from: Date())
+
+        for friend in selectedFriends {
+            // Query Firestore to get the recipient's username based on the friend's name
+            db.collection("users")
+                .whereField("name", isEqualTo: friend)
+                .getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            let recipient = document.get("username") as? String ?? ""
+
+                            // Prepare chat data
+                            let message = "Hey \(friend), you owe me Rp. \(String(format: "%.2f", calculateTotalPerPerson())), for \(activityName)."
+
+                            let chatData: [String: Any] = [
+                                "sender": appUsername ?? "",
+                                "recipient": recipient,
+                                "chat": message,
+                                "date_time": currentDateTime
+                            ]
+
+                            // Add chatData to Firestore
+                            db.collection("chats").addDocument(data: chatData) { error in
+                                if let error = error {
+                                    print("Error adding document: \(error)")
+                                } else {
+                                    print("Document added successfully")
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+    }
+
+    func fetchFriend() {
+        allFriends = []
+        let db = Firestore.firestore()
+        db.collection("friends")
+            .whereField("username", isEqualTo: appUsername)
+            .getDocuments { querySnapshot, error in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    if let document = querySnapshot?.documents.first {
+                        for field in document.data() {
+                            if(field.key != "username"){
+                                if let fieldValue = field.value as? String {
+                                    allFriends.append(fieldValue)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
     }
 
     private func calculateTotalPerPerson() -> Double {
