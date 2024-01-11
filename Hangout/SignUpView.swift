@@ -314,3 +314,4 @@ struct SignUpFormView_Previews: PreviewProvider {
         SignUpView()
     }
 }
+
