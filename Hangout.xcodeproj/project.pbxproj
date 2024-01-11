@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0465D9AC2B4C723400291641 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0465D9AB2B4C723400291641 /* FirebaseFirestore */; };
 		04684E982B4EDB2C00DD3D31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04684E972B4EDB2B00DD3D31 /* GoogleService-Info.plist */; };
+		04684E9A2B4F25C100DD3D31 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04684E992B4F25C100DD3D31 /* ChatView.swift */; };
 		049227A22B1BF72D00DD98CA /* HangoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227A12B1BF72D00DD98CA /* HangoutApp.swift */; };
 		049227A42B1BF72D00DD98CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049227A32B1BF72D00DD98CA /* ContentView.swift */; };
 		049227A62B1BF73000DD98CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049227A52B1BF73000DD98CA /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		04684E972B4EDB2B00DD3D31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04684E992B4F25C100DD3D31 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		0492279E2B1BF72D00DD98CA /* Hangout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049227A12B1BF72D00DD98CA /* HangoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutApp.swift; sourceTree = "<group>"; };
 		049227A32B1BF72D00DD98CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				049227A52B1BF73000DD98CA /* Assets.xcassets */,
 				049227D32B1C805D00DD98CA /* MapView.swift */,
 				049227CB2B1C475800DD98CA /* SplitBillView.swift */,
+				04684E992B4F25C100DD3D31 /* ChatView.swift */,
 				049227D52B1C808700DD98CA /* MessageView.swift */,
 				04684E972B4EDB2B00DD3D31 /* GoogleService-Info.plist */,
 				049227CF2B1C47DE00DD98CA /* FriendView.swift */,
@@ -346,6 +349,7 @@
 				04A6D2A22B4B0A110060222E /* DatePickerTextFields.swift in Sources */,
 				049227D62B1C808700DD98CA /* MessageView.swift in Sources */,
 				04C062802B2B4330008E8362 /* BoardingView.swift in Sources */,
+				04684E9A2B4F25C100DD3D31 /* ChatView.swift in Sources */,
 				049227D82B1CC35800DD98CA /* LoginView.swift in Sources */,
 				04A6D2A02B4B09990060222E /* GoogleSignInButtons.swift in Sources */,
 				049227A42B1BF72D00DD98CA /* ContentView.swift in Sources */,

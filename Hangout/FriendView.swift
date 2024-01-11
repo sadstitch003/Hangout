@@ -61,16 +61,17 @@ struct FriendView: View {
                 .padding(.top, 10)
                 .padding(.bottom, 20)
             
-            ZStack{
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 260, height: 42)
-                    .background(Color(red: 0.26, green: 0.58, blue: 0.97))
-                    .cornerRadius(90)
-                
-                Button(action: {
-                    addFriend()
-                }) {
+            Button(action: {
+                addFriend()
+                newFriendID = ""
+            }) {
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 260, height: 42)
+                        .background(Color(red: 0.26, green: 0.58, blue: 0.97))
+                        .cornerRadius(90)
+
                     Text("Add Friend")
                         .foregroundColor(.white)
                         .bold()
