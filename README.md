@@ -1,9 +1,10 @@
 # Hangout
 
-<img src="https://github.com/sadstitch003/Hangout/assets/80204631/7b9edded-aef1-4eb0-ab86-3043f34b0b4b" width="200" alt="Screenshot 1">
-<img src="https://github.com/sadstitch003/Hangout/assets/80204631/360e469c-142a-4611-a21f-7cd6c652985a" width="200" alt="Screenshot 2">
-<img src="https://github.com/sadstitch003/Hangout/assets/80204631/d66b6dea-0c3c-4759-a91a-5bf2fbbbf678" width="200" alt="Screenshot 3">
-<img src="https://github.com/sadstitch003/Hangout/assets/80204631/53057bf8-b789-443c-8229-059622badae5" width="200" alt="Screenshot 4">
+<img src="https://github.com/sadstitch003/Hangout/assets/80204631/7b9edded-aef1-4eb0-ab86-3043f34b0b4b" width="200" alt="Screenshot 1" style="padding: 10px;">
+<img src="https://github.com/sadstitch003/Hangout/assets/80204631/360e469c-142a-4611-a21f-7cd6c652985a" width="200" alt="Screenshot 2" style="padding: 10px;">
+<img src="https://github.com/sadstitch003/Hangout/assets/80204631/d66b6dea-0c3c-4759-a91a-5bf2fbbbf678" width="200" alt="Screenshot 3" style="padding: 10px;">
+<img src="https://github.com/sadstitch003/Hangout/assets/80204631/53057bf8-b789-443c-8229-059622badae5" width="200" alt="Screenshot 4" style="padding: 10px;">
+
 
 Hangout is a social application that makes it easy to connect and share experiences with friends. Whether you want to see your friends' live locations, split bills, chat, or expand your social circle, Hangout has you covered.
 
