@@ -40,5 +40,3 @@ Hangout leverages the following technologies to provide a seamless and feature-r
 
 3. **Firebase Google Authentication**
    - Securely authenticate users using Firebase's integration with Google Authentication, providing a seamless and trusted login experience.
-
-Happy Hanging Out!
